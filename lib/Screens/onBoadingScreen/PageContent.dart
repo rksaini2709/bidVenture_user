@@ -52,23 +52,6 @@ class PageContent extends StatelessWidget {
                     color: blackColor),
                 textAlign: TextAlign.center,
               ),
-              // CustomText(
-              //     text: description,
-              //     fontSize: 16,
-              //     fontWeight: FontWeight.w400,
-              //     color: blackColor),
-              // const SizedBox(
-              //   height: 120,
-              // ),
-              // PrimaryBtn(
-              //   text: btnText,
-              //   fontSize: 20,
-              //   fontWeight: FontWeight.w700,
-              //   textColor: Colors.white,
-              //   onPressed: () {},
-              //   btnColor: btnColor,
-              //   width: width,
-              // ),
             ],
           ),
         ),

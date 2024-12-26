@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/Config/Colors.dart';
 import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
 
-import '../../LoginScreen.dart';
+import '../Auth/LoginScreen.dart';
 import 'PageContent.dart';
 
 class OnBoadingScreen extends StatefulWidget {
@@ -85,7 +85,7 @@ class _OnBoadingScreenState extends State<OnBoadingScreen> {
                   height: 10,
                   width: 10,
                   decoration: BoxDecoration(
-                    color: _currentPage == index ? Colors.blue : Colors.grey,
+                    color: _currentPage == index ? lightBlueColor : grayColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
