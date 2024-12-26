@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/Config/Colors.dart';
 import 'package:get/get.dart';
 
+import '../../Config/Images.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -27,7 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child:
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Image.asset("assets/images/bidVentureLogo.png"),
+            child:
+            Image.asset("assets/images/bidVentureLogo.png"),
             // Image.asset(AssetsImages.logo),
           )
       ),

@@ -8,6 +8,7 @@ class AssetsImages {
   static const anniversaryImage = "$imagesPath/Anniversary";
   static const weddingImage = "$imagesPath/Wedding";
   static const loginImage = "$imagesPath/login.png";
+  static const verificationImage = "$imagesPath/Verification.png";
 
   // Icon Images -
   static const indianFlag = "$imagesPath/IndianFlag.png";

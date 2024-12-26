@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_projects/Screens/Auth/VerificationScreen.dart';
 import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
+import 'package:get/get.dart';
 
 import '../../../../Config/Colors.dart';
 import '../../../../Config/Images.dart';
@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _phoneController = TextEditingController();
   bool _isButtonEnabled = false;
 
-  // Phone Number Validation ( Should be only 10 digits number )
+  // Phone Number Validation (Should be only 10 digits number)
   void _validatePhoneNumber(String phone) {
     setState(() {
       _isButtonEnabled =
@@ -26,33 +26,23 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  // show snack bar that plz enter first a valid number
-  void _showSnackBarInvalidNumber() {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text("Please enter a valid 10-digit phone number."),
-      duration: Duration(seconds: 2),));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(AssetsImages.loginImage),
-              // Image.asset("assets/images/login.png"),
               const CustomText(
                   text: "Login",
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
                   color: blackColor),
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 41,
-                ),
+                padding: const EdgeInsets.only(top: 41),
                 child: SizedBox(
                   height: 60,
                   child: TextFormField(
@@ -70,9 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            // Indian flag icon
                             Image.asset(
-                              // AssetsImages.indianFlag,
                               'assets/icons/IndianFlag.png',
                               width: 24,
                               height: 24,
@@ -103,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       focusedBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: primaryColor),
+                        borderSide: BorderSide(color: secondaryColor),
                       ),
                       enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -119,34 +107,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 textColor: whiteColor,
-                btnColor: primaryColor,
+                btnColor: secondaryColor,
                 width: double.infinity,
-
+                // If the number is valid then navigate to VerificationScreen
                 onPressed: _isButtonEnabled
                     ? () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const VerificationScreen(),
-                    ),
-                  );
+                  Get.toNamed('/verificationScreen');
                 }
-                    : _showSnackBarInvalidNumber,
-                // (){},
-
-                // onPressed: _isButtonEnabled ? () {
-                //   Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //                 builder: (context) => const VerificationScreen()));
-                // } : null,
-
-                //     () {
-                //   Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //           builder: (context) => const VerificationScreen()));
-                // },
+                    : () {
+                  // snackbar to show that Entered number is invalid
+                  Get.snackbar(
+                    "Invalid Number",
+                    "Please enter a valid 10-digit phone number.",
+                    backgroundColor: secondaryColor,
+                    colorText: whiteColor,
+                  );
+                },
               )
             ],
           ),
@@ -158,12 +134,165 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
 
+// bottom Snack Bar
+// class LoginScreen extends StatefulWidget {
+//   const LoginScreen({super.key});
+//
+//   @override
+//   _LoginScreenState createState() => _LoginScreenState();
+// }
+//
+// class _LoginScreenState extends State<LoginScreen> {
+//   final TextEditingController _phoneController = TextEditingController();
+//   bool _isButtonEnabled = false;
+//
+//   // Phone Number Validation ( Should be only 10 digits number )
+//   void _validatePhoneNumber(String phone) {
+//     setState(() {
+//       _isButtonEnabled =
+//           phone.length == 10 && RegExp(r'^[0-9]+$').hasMatch(phone);
+//     });
+//   }
+//
+//   // show snack bar that plz enter first a valid number
+//   void _showSnackBarInvalidNumber() {
+//     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+//       content: Text("Please enter a valid 10-digit phone number."),
+//       duration: Duration(seconds: 2),));
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SingleChildScrollView(
+//         child: Padding(
+//           padding: const EdgeInsets.all(20.0),
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Image.asset(AssetsImages.loginImage),
+//               // Image.asset("assets/images/login.png"),
+//               const CustomText(
+//                   text: "Login",
+//                   fontSize: 25,
+//                   fontWeight: FontWeight.w800,
+//                   color: blackColor),
+//               Padding(
+//                 padding: const EdgeInsets.only(
+//                   top: 41,
+//                 ),
+//                 child: SizedBox(
+//                   height: 60,
+//                   child: TextFormField(
+//                     controller: _phoneController,
+//                     keyboardType: TextInputType.phone,
+//                     maxLength: 10,
+//                     inputFormatters: [
+//                       FilteringTextInputFormatter.digitsOnly,
+//                     ],
+//                     onChanged: _validatePhoneNumber,
+//                     decoration: InputDecoration(
+//                       counterText: '',
+//                       prefixIcon: Padding(
+//                         padding: const EdgeInsets.symmetric(horizontal: 10),
+//                         child: Row(
+//                           mainAxisSize: MainAxisSize.min,
+//                           children: [
+//                             // Indian flag icon
+//                             Image.asset(
+//                               // AssetsImages.indianFlag,
+//                               'assets/icons/IndianFlag.png',
+//                               width: 24,
+//                               height: 24,
+//                               fit: BoxFit.cover,
+//                             ),
+//                             const SizedBox(width: 5),
+//                             const CustomText(
+//                                 text: '+91',
+//                                 fontSize: 16,
+//                                 fontWeight: FontWeight.w400,
+//                                 color: blackColor),
+//                           ],
+//                         ),
+//                       ),
+//                       prefixIconConstraints: const BoxConstraints(
+//                         minWidth: 0,
+//                         minHeight: 0,
+//                       ),
+//                       hintText: 'Enter your Number',
+//                       hintStyle: const TextStyle(
+//                         fontSize: 13,
+//                         fontWeight: FontWeight.w400,
+//                         color: grayColor,
+//                       ),
+//                       border: const OutlineInputBorder(
+//                         borderRadius: BorderRadius.all(Radius.circular(10)),
+//                         borderSide: BorderSide(),
+//                       ),
+//                       focusedBorder: const OutlineInputBorder(
+//                         borderRadius: BorderRadius.all(Radius.circular(10)),
+//                         borderSide: BorderSide(color: primaryColor),
+//                       ),
+//                       enabledBorder: const OutlineInputBorder(
+//                         borderRadius: BorderRadius.all(Radius.circular(10)),
+//                         borderSide: BorderSide(color: blackColor),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               const SizedBox(height: 30),
+//               PrimaryBtn(
+//                 text: "Next",
+//                 fontSize: 20,
+//                 fontWeight: FontWeight.w700,
+//                 textColor: whiteColor,
+//                 btnColor: primaryColor,
+//                 width: double.infinity,
+//
+//                 onPressed: _isButtonEnabled
+//                     ? () {
+//                   Get.toNamed('/VerificationScreen');
+//                   // Navigator.push(
+//                   //   context,
+//                   //   MaterialPageRoute(
+//                   //     builder: (context) => const VerificationScreen(),
+//                   //   ),
+//                   // );
+//                 }
+//                     : _showSnackBarInvalidNumber,
+//                 // (){},
+//
+//                 // onPressed: _isButtonEnabled ? () {
+//                 //   Navigator.push(
+//                 //             context,
+//                 //             MaterialPageRoute(
+//                 //                 builder: (context) => const VerificationScreen()));
+//                 // } : null,
+//
+//                 //     () {
+//                 //   Navigator.push(
+//                 //       context,
+//                 //       MaterialPageRoute(
+//                 //           builder: (context) => const VerificationScreen()));
+//                 // },
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 
 
 
 
+
+
+// show PopUp if entered number is invalid
 // class LoginScreen extends StatefulWidget {
 //   const LoginScreen({super.key});
 //
@@ -310,4 +439,3 @@ class _LoginScreenState extends State<LoginScreen> {
 //     );
 //   }
 // }
-

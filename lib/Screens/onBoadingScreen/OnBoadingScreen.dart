@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/Config/Colors.dart';
 import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../Auth/LoginScreen.dart';
 import 'PageContent.dart';
@@ -103,11 +105,12 @@ class _OnBoadingScreenState extends State<OnBoadingScreen> {
                 textColor: whiteColor,
                 onPressed: () {
                   if (_currentPage == 2) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                    );
+                    Get.toNamed('/loginScreen');
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const LoginScreen()),
+                    // );
                   } else {
                     _pageController.nextPage(
                       duration: const Duration(milliseconds: 300),
