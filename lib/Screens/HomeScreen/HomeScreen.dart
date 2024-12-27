@@ -65,7 +65,9 @@ class _HomeScreenState extends State<HomeScreen> {
               // Image.asset(AssetsImages.hotelImage),
 
               // hotel banners Carousel
-              // ImageCarousel(),
+              const ImageCarousel(),
+
+
             ],
           ),
         ),

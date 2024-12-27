@@ -1,58 +1,317 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+
+import '../../Config/Images.dart';
+
+class ImageCarousel extends StatefulWidget {
+  const ImageCarousel({super.key});
+
+  @override
+  State<ImageCarousel> createState() => _ImageCarouselState();
+}
+
+class _ImageCarouselState extends State<ImageCarousel> {
+  final List<String> imgList = [
+    AssetsImages.hotelImage,
+    AssetsImages.hotelImage,
+    // 'assets/images/Hotel.png',
+    // 'assets/images/Hotel.png',
+  ];
+
+  int _currentIndex = 0;
+  bool isAutoPlayEnabled = true;
+
+  // Function to handle autoplay toggle
+  void toggleAutoPlay() {
+    setState(() {
+      isAutoPlayEnabled = !isAutoPlayEnabled;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            autoPlay: isAutoPlayEnabled,
+            autoPlayInterval: const Duration(seconds: 3),
+            enlargeCenterPage: true,
+            aspectRatio: 20 / 14,
+            viewportFraction: 1,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
+          items: imgList.map((imageUrl) {
+            return Builder(
+              builder: (BuildContext context) {
+                return SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Stack(
+                    children: [
+                      Image.asset(imageUrl, fit: BoxFit.cover),
+                    ],
+                  ),
+                );
+              },
+            );
+          }).toList(),
+        ),
+      ],
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';  // Ensure Material package is imported
 //
 // class ImageCarousel extends StatefulWidget {
+//   const ImageCarousel({super.key});
+//
+//   @override
+//   State<ImageCarousel> createState() => _ImageCarouselState();
+// }
+//
+// class _ImageCarouselState extends State<ImageCarousel> {
+//   final List<String> imgList = [
+//     'assets/images/Hotel.png',
+//     'assets/images/Hotel.png',
+//   ];
+//
+//   int _currentIndex = 0;  // To track the current image index
+//   bool isAutoPlayEnabled = true;  // To toggle autoplay
+//
+//   // Function to handle autoplay toggle
+//   void toggleAutoPlay() {
+//     setState(() {
+//       isAutoPlayEnabled = !isAutoPlayEnabled;
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: [
+//         CarouselSlider(
+//           options: CarouselOptions(
+//             autoPlay: isAutoPlayEnabled,  // Use the current autoplay state
+//             autoPlayInterval: const Duration(seconds: 3),
+//             enlargeCenterPage: true,
+//             aspectRatio: 28 / 20,
+//             viewportFraction: 0.95,
+//             onPageChanged: (index, reason) {
+//               setState(() {
+//                 _currentIndex = index;  // Update the current index
+//               });
+//             },
+//           ),
+//           items: imgList.map((imageUrl) {
+//             return Builder(
+//               builder: (BuildContext context) {
+//                 return SizedBox(
+//                   width: MediaQuery.of(context).size.width,
+//                   child: Stack(
+//                     children: [
+//                       Image.asset(imageUrl, fit: BoxFit.cover),
+//                     ],
+//                   ),
+//                 );
+//               },
+//             );
+//           }).toList(),
+//         ),
+//
+//         // Add a row of dots to indicate the active page
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: List.generate(
+//             imgList.length,
+//                 (index) => AnimatedContainer(
+//               duration: const Duration(milliseconds: 300),
+//               margin: const EdgeInsets.symmetric(horizontal: 5),
+//               height: 10,
+//               width: 10,
+//               decoration: BoxDecoration(
+//                 shape: BoxShape.circle,
+//                 color: _currentIndex == index
+//                     ? Theme.of(context).primaryColor // Active dot color
+//                     : Colors.grey.withOpacity(0.5), // Inactive dot color
+//               ),
+//             ),
+//           ),
+//         ),
+//
+//         // Add a button to toggle autoplay
+//         IconButton(
+//           icon: Icon(isAutoPlayEnabled ? Icons.pause : Icons.play_arrow),
+//           onPressed: toggleAutoPlay,  // Toggle autoplay
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+
+// import 'dart:async';  // For Timer
+// import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:flutter/material.dart';
+//
+// class ImageCarousel extends StatefulWidget {
+//   const ImageCarousel({super.key});
+//
 //   @override
 //   _ImageCarouselState createState() => _ImageCarouselState();
 // }
 //
 // class _ImageCarouselState extends State<ImageCarousel> {
-//   // List of image assets (use relative path from the 'assets' directory)
-//   final List<String> _imageAssets = [
-//     "assets/images/Hotel.png",
-//     "assets/images/Hotel.png",
+//   final List<String> imgList = [
+//     'assets/images/Hotel.png',
+//     'assets/images/Hotel.png',
+//     'assets/images/Hotel.png',
+//     'assets/images/Hotel.png',
+//     'assets/images/Hotel.png',
 //   ];
 //
-//   // Controller for PageView
-//   PageController _pageController = PageController();
-//
-//   // Function to automatically move the carousel to the next image
-//   void _autoSlide() {
-//     Future.delayed(Duration(seconds: 3), () {
-//       if (_pageController.hasClients) {
-//         int nextPage = (_pageController.page?.toInt() ?? 0) + 1;
-//         if (nextPage >= _imageAssets.length) nextPage = 0;
-//         _pageController.animateToPage(
-//           nextPage,
-//           duration: Duration(seconds: 1),
-//           curve: Curves.easeInOut,
-//         );
-//       }
-//     });
-//   }
+//   int _currentIndex = 0;
+//   late Timer _timer;  // Timer for auto sliding
 //
 //   @override
 //   void initState() {
 //     super.initState();
-//     _autoSlide(); // Start the auto slide when the widget is created
+//     // Start the auto slide timer
+//     _startAutoSlide();
+//   }
+//
+//   // Function to start auto sliding the carousel
+//   void _startAutoSlide() {
+//     _timer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
+//       if (_currentIndex < imgList.length - 1) {
+//         _currentIndex++;
+//       } else {
+//         _currentIndex = 0;  // Reset to the first image
+//       }
+//       // Change the carousel slide
+//       setState(() {});
+//     });
+//   }
+//
+//   @override
+//   void dispose() {
+//     // Dispose of the timer when the widget is disposed
+//     _timer.cancel();
+//     super.dispose();
 //   }
 //
 //   @override
 //   Widget build(BuildContext context) {
-//     return Container(
-//       width: double.infinity,
-//       height: 300, // Fixed height for the carousel
-//       child: PageView.builder(
-//         controller: _pageController,
-//         itemCount: _imageAssets.length,
-//         itemBuilder: (context, index) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           // CarouselSlider
+//           CarouselSlider.builder(
+//             itemCount: imgList.length,
+//             itemBuilder: (BuildContext context, int index, int realIndex) {
+//               return Image.asset(
+//                 imgList[index],
+//                 fit: BoxFit.cover, // Optionally add BoxFit for better image scaling
+//               );
+//             },
+//             options: CarouselOptions(
+//               enlargeCenterPage: true,
+//               viewportFraction: 1.0,
+//               scrollPhysics: const BouncingScrollPhysics(),
+//               scrollDirection: Axis.horizontal,
+//               reverse: true, // For right-to-left scrolling
+//               initialPage: _currentIndex,  // Set initial page based on _currentIndex
+//               onPageChanged: (index, reason) {
+//                 setState(() {
+//                   _currentIndex = index; // Update the index on page change
+//                 });
+//               },
+//             ),
+//           ),
+//
+//           // Dots indicator
+//           const SizedBox(height: 8), // Space between carousel and dots
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: List.generate(
+//               imgList.length,
+//                   (index) => AnimatedContainer(
+//                 duration: const Duration(milliseconds: 300),
+//                 margin: EdgeInsets.symmetric(horizontal: 5),
+//                 height: 10,
+//                 width: 10,
+//                 decoration: BoxDecoration(
+//                   shape: BoxShape.circle,
+//                   color: _currentIndex == index
+//                       ? Theme.of(context).primaryColor // Active dot color
+//                       : Colors.grey.withOpacity(0.5), // Inactive dot color
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+
+
+
+
+
+
+
+
+
+// import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:flutter/material.dart';
+//
+// class ImageCarousel extends StatelessWidget {
+//   final List<String> imgList = [
+//     'assets/images/Hotel.png',
+//     'assets/images/Hotel.png',
+//   ];
+//
+//   ImageCarousel({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: CarouselSlider.builder(
+//         itemCount: imgList.length,
+//         itemBuilder: (BuildContext context, int index, int realIndex) {
 //           return Image.asset(
-//             _imageAssets[index],
-//             fit: BoxFit.cover,
+//             imgList[index],
+//             // fit: BoxFit.cover,
 //           );
 //         },
-//         onPageChanged: (index) {
-//           _autoSlide(); // Reset the auto slide when the page is changed
-//         },
+//         options: CarouselOptions(
+//           // height: 160,
+//           enlargeCenterPage: true,
+//           viewportFraction: 1.0,
+//           scrollPhysics: const BouncingScrollPhysics(),  // Add physics for smooth scrolling
+//           scrollDirection: Axis.horizontal, // Default is horizontal, so this is just for clarity
+//           reverse: true, // This ensures the carousel scrolls from right to left
+//         ),
 //       ),
 //     );
 //   }
