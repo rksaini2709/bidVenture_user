@@ -11,4 +11,4 @@ const secondaryColor = Color(0xff1F3A7A);
 const lightBlueColor = Color(0xff4688F0);
 const greenColor = Color(0xff3AA856);
 const redColor = Color(0xffE8453C);
-const grayColor = Color(0xff808080);
+const grayColor = Color(0xFFD3D3D3);

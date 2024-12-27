@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Config/Colors.dart';
-import '../../../Config/Images.dart';
-import '../../Widgets/CustomOtpTextField.dart';
-import '../../Widgets/CustomText.dart';
+import '../../../../Config/Colors.dart';
+import '../../../../Config/Images.dart';
+import 'CustomOtpTextField.dart';
+import '../../../Widgets/CustomText.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -54,7 +54,7 @@ class VerificationScreenState extends State<VerificationScreen> {
                   onChanged: _checkOtpValidity,
                   onConfirm: () {
                     if (_isOtpValid) {
-                      Get.toNamed("/addYourProfileScreen");
+                      Get.toNamed("/homeScreen");
                     } else {
                       Get.snackbar(
                         "Invalid OTP",

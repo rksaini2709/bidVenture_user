@@ -9,6 +9,7 @@ class AssetsImages {
   static const weddingImage = "$imagesPath/Wedding";
   static const loginImage = "$imagesPath/login.png";
   static const verificationImage = "$imagesPath/Verification.png";
+  static const hotelImage = "$imagesPath/Hotel.png";
 
   // Icon Images -
   static const indianFlag = "$imagesPath/IndianFlag.png";

@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 76),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -112,17 +112,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 // If the number is valid then navigate to VerificationScreen
                 onPressed: _isButtonEnabled
                     ? () {
-                  Get.toNamed('/verificationScreen');
-                }
+                        Get.toNamed('/verificationScreen');
+                      }
                     : () {
-                  // snackbar to show that Entered number is invalid
-                  Get.snackbar(
-                    "Invalid Number",
-                    "Please enter a valid 10-digit phone number.",
-                    backgroundColor: secondaryColor,
-                    colorText: whiteColor,
-                  );
-                },
+                        // snackbar to show that Entered number is invalid
+                        Get.snackbar(
+                          "Invalid Number",
+                          "Please enter a valid 10-digit phone number.",
+                          backgroundColor: secondaryColor,
+                          colorText: whiteColor,
+                        );
+                      },
               )
             ],
           ),
@@ -131,8 +131,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
 
 // bottom Snack Bar
 // class LoginScreen extends StatefulWidget {
@@ -284,13 +282,6 @@ class _LoginScreenState extends State<LoginScreen> {
 //     );
 //   }
 // }
-
-
-
-
-
-
-
 
 // show PopUp if entered number is invalid
 // class LoginScreen extends StatefulWidget {
