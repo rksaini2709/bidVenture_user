@@ -65,8 +65,8 @@ class EventCategoryList extends StatelessWidget {
       itemCount: events.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 5,
-        // crossAxisSpacing: 2,
-        // mainAxisSpacing: 2,
+        crossAxisSpacing: 2,
+        mainAxisSpacing: 2,
       ),
       itemBuilder: (context, index) {
         final event = events[index];
@@ -86,11 +86,12 @@ class EventCategoryList extends StatelessWidget {
                       border: Border.all(
                         color: whiteColor,
                         width: 2,
-                      )),
+                      )
+                  ),
                   child: Image.asset(
                     event['imagePath'],
-                    height: 45,
-                    width: 45,
+                    height: 42,
+                    width: 42,
                     // fit: BoxFit.contain,
                   ),
                 ),

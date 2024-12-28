@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: const CustomText(
                           text: "Start Bidding",
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: whiteColor,
                         ),
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: const CustomText(
                           text: "See Property First",
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: whiteColor,
                         ),
