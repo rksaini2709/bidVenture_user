@@ -98,7 +98,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
         GestureDetector(
           onTap: _getCurrentLocation,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.7,
+            width: MediaQuery.of(context).size.width * 0.68,
             child: Text(
               _locationName,
               style: const TextStyle(
@@ -111,7 +111,6 @@ class _CurrentLocationState extends State<CurrentLocation> {
             ),
           ),
         ),
-        // const SizedBox(width: 4),
         const Icon(
           Icons.arrow_forward_ios,
           color: blackColor,

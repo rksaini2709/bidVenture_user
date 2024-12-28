@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projects/Config/Images.dart';
 import 'package:flutter_projects/Screens/HomeScreen/currentLocation.dart';
 import 'package:get/get.dart';
-
 import '../../Config/Colors.dart';
+import 'EventCategory/EventCategoryList.dart';
 import 'ImageCarousel.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-
               // Fetch Current Location
               const CurrentLocation(),
 
@@ -61,13 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const SizedBox(height: 16,),
-              // Image.asset(AssetsImages.hotelImage),
+              const SizedBox(height: 16),
 
-              // hotel banners Carousel
+              // Hotel banners Carousel
               const ImageCarousel(),
+              const SizedBox(height: 10),
 
-
+              // Event Category List
+              EventCategoryList(),
             ],
           ),
         ),

@@ -14,8 +14,6 @@ class _ImageCarouselState extends State<ImageCarousel> {
   final List<String> imgList = [
     AssetsImages.hotelImage,
     AssetsImages.hotelImage,
-    // 'assets/images/Hotel.png',
-    // 'assets/images/Hotel.png',
   ];
 
   int _currentIndex = 0;
@@ -38,7 +36,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
             autoPlay: isAutoPlayEnabled,
             autoPlayInterval: const Duration(seconds: 3),
             enlargeCenterPage: true,
-            aspectRatio: 20 / 14,
+            aspectRatio: 20 / 9,
             viewportFraction: 1,
             onPageChanged: (index, reason) {
               setState(() {
