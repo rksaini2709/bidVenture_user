@@ -59,56 +59,54 @@ class EventCategoryList extends StatelessWidget {
       },
     ];
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: events.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 5,
-          // crossAxisSpacing: 4,
-          // mainAxisSpacing: 4,
-        ),
-        itemBuilder: (context, index) {
-          final event = events[index];
-          return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, event['routeName']);
-              },
-              child: SizedBox(
-                  height: 90,
-                  child: Column(children: [
-                    Material(
-                      elevation: 5,
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        padding: const EdgeInsets.all(0),
-                        decoration: BoxDecoration(
-                            color: whiteColor,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: whiteColor,
-                              width: 2,
-                            )),
-                        child: Image.asset(
-                          event['imagePath'],
-                          height: 50,
-                          width: 50,
-                          // fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      event['name'],
-                      style: const TextStyle(
-                          fontSize: 11, fontWeight: FontWeight.w900),
-                      textAlign: TextAlign.center,
-                    ),
-                  ])));
-        },
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: events.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 5,
+        // crossAxisSpacing: 2,
+        // mainAxisSpacing: 2,
       ),
+      itemBuilder: (context, index) {
+        final event = events[index];
+        return GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, event['routeName']);
+            },
+            child: SizedBox(
+                child: Column(children: [
+              Material(
+                elevation: 3,
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: whiteColor,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 2,
+                      )),
+                  child: Image.asset(
+                    event['imagePath'],
+                    height: 45,
+                    width: 45,
+                    // fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 2),
+              Padding(
+                padding: const EdgeInsets.all(0),
+                child: Text(
+                  event['name'],
+                  style: const TextStyle(
+                      fontSize: 10, fontWeight: FontWeight.w700),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ])));
+      },
     );
   }
 }

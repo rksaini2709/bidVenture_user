@@ -87,7 +87,7 @@ class _OnBoadingScreenState extends State<OnBoadingScreen> {
                   height: 10,
                   width: 10,
                   decoration: BoxDecoration(
-                    color: _currentPage == index ? lightBlueColor : grayColor,
+                    color: _currentPage == index ? primaryColor : grayColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),

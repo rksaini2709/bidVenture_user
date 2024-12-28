@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_projects/Config/Colors.dart';
+import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
 import '../../Config/Images.dart';
+import '../../Widgets/CustomText.dart';
 
 class ImageCarousel extends StatefulWidget {
   const ImageCarousel({super.key});
@@ -11,15 +13,23 @@ class ImageCarousel extends StatefulWidget {
 }
 
 class _ImageCarouselState extends State<ImageCarousel> {
+
+  // List of images for the carousel
   final List<String> imgList = [
+    AssetsImages.hotelImage,
+    AssetsImages.hotelImage,
+    AssetsImages.hotelImage,
     AssetsImages.hotelImage,
     AssetsImages.hotelImage,
   ];
 
+  // Current index of the carousel
   int _currentIndex = 0;
+
+  // Flag to toggle autoplay on/off
   bool isAutoPlayEnabled = true;
 
-  // Function to handle autoplay toggle
+  // Function to toggle autoplay on and off
   void toggleAutoPlay() {
     setState(() {
       isAutoPlayEnabled = !isAutoPlayEnabled;
@@ -31,6 +41,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        // CarouselSlider widget
         CarouselSlider(
           options: CarouselOptions(
             autoPlay: isAutoPlayEnabled,
@@ -59,20 +70,47 @@ class _ImageCarouselState extends State<ImageCarousel> {
             );
           }).toList(),
         ),
+
+        const SizedBox(
+          height: 10,
+        ),
+
+        // Dot Indicators
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            imgList.length,
+            (index) => Container(
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              width: 8.0,
+              height: 8.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _currentIndex == index ? primaryColor : grayColor),
+            ),
+          ),
+        ),
+
+        // const SizedBox(
+        //   height: 10,
+        // ),
+        //
+        // // Toggle Button to enable/disable autoplay
+        // PrimaryBtn(
+        //     text: isAutoPlayEnabled
+        //         ? "Disable Auto Slide image"
+        //         : "Enable Auto Slide image",
+        //     fontSize: 16,
+        //     fontWeight: FontWeight.w600,
+        //     textColor: whiteColor,
+        //     onPressed: toggleAutoPlay,
+        //     btnColor: secondaryColor,
+        //     width: double.infinity),
       ],
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
+//------------------------------------------------------------------------------
 // import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';  // Ensure Material package is imported
@@ -163,8 +201,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
 //     );
 //   }
 // }
-
-
+//------------------------------------------------------------------------------
 // import 'dart:async';  // For Timer
 // import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:flutter/material.dart';
@@ -271,15 +308,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
 //   }
 // }
 //
-
-
-
-
-
-
-
-
-
+//------------------------------------------------------------------------------
 // import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:flutter/material.dart';
 //
