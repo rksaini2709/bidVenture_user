@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../Config/Colors.dart';
-import '../../../../Config/Images.dart';
-import 'CustomOtpTextField.dart';
-import '../../../Widgets/CustomText.dart';
+import '../../../Config/colors.dart';
+import '../../../Config/images.dart';
+import '../../widgets/custom_otp_textfield.dart';
+import '../../Widgets/custom_text.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});

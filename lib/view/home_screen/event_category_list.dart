@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/Config/Colors.dart';
+import 'package:flutter_projects/Config/colors.dart';
 
 class EventCategoryList extends StatelessWidget {
   const EventCategoryList({super.key});
@@ -300,7 +300,7 @@ class EventCategoryList extends StatelessWidget {
 // }
 // -----------------------------------------------------------------------------
 // import 'package:flutter/material.dart';
-// import 'package:flutter_projects/Config/Images.dart';
+// import 'package:flutter_projects/config/images.dart';
 // import 'CategoryCard.dart';
 //
 // class EventCategoryList extends StatelessWidget {

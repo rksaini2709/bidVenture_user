@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/Config/Images.dart';
-import 'package:flutter_projects/Screens/HomeScreen/currentLocation.dart';
-import 'package:flutter_projects/Widgets/CustomText.dart';
-import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
+import 'package:flutter_projects/Config/images.dart';
+import 'package:flutter_projects/Widgets/custom_text.dart';
+import 'package:flutter_projects/Widgets/primary_btn.dart';
 import 'package:get/get.dart';
-import '../../Config/Colors.dart';
-import 'EventCategoryList.dart';
-import 'ImageCarousel.dart';
+import '../../Config/colors.dart';
+import 'event_category_list.dart';
+import 'image_carousel.dart';
+import 'current_location.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // Hotel banners Carousel
               const ImageCarousel(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
 
               // Event Category List
               const EventCategoryList(),

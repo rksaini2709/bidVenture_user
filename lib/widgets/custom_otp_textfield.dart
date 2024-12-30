@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Config/Colors.dart';
+import '../Config/colors.dart';
 
 class CustomOtpTextField extends StatelessWidget {
   final int numberOfFields;

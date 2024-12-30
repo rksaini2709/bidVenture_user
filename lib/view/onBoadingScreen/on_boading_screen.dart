@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/Config/Colors.dart';
-import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
+import 'package:flutter_projects/Config/colors.dart';
+import 'package:flutter_projects/Widgets/primary_btn.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../Auth/LoginScreen.dart';
-import 'PageContent.dart';
+import '../Auth/login_screen.dart';
+import 'page_content.dart';
 
 class OnBoadingScreen extends StatefulWidget {
   const OnBoadingScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/Widgets/CustomText.dart';
+import 'package:flutter_projects/Widgets/custom_text.dart';
 
 class PrimaryBtn extends StatelessWidget {
   final String text;

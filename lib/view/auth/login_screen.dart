@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
+import 'package:flutter_projects/Widgets/primary_btn.dart';
 import 'package:get/get.dart';
 
-import '../../../../Config/Colors.dart';
-import '../../../../Config/Images.dart';
-import '../../Widgets/CustomText.dart';
+import '../../../../Config/colors.dart';
+import '../../../../Config/images.dart';
+import '../../Widgets/custom_text.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

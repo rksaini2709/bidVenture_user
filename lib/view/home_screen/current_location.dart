@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
-import '../../Config/Colors.dart';
+import '../../Config/colors.dart';
 
 class CurrentLocation extends StatefulWidget {
   const CurrentLocation({super.key});

@@ -1,21 +1,21 @@
-import 'package:flutter_projects/NotificationScreen.dart';
-import 'package:flutter_projects/Screens/Auth/LoginScreen.dart';
-import 'package:flutter_projects/Screens/HomeScreen/HomeScreen.dart';
+import 'package:flutter_projects/notification_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../AnniversaryScreen.dart';
-import '../BirthdayScreen.dart';
-import '../CharityScreen.dart';
-import '../CorporateScreen.dart';
-import '../EngagementScreen.dart';
-import '../MeetupScreen.dart';
-import '../OthersScreen.dart';
-import '../PreWeddingScreen.dart';
-import '../ReunionsScreen.dart';
-import '../Screens/Auth/OtpVerify/VerificationScreen.dart';
-import '../Screens/onBoadingScreen/OnBoadingScreen.dart';
-import '../Screens/Auth/SplashScreen.dart';
-import '../WeddingScreen.dart';
+import '../anniversary_screen.dart';
+import '../birthday_screen.dart';
+import '../charity_screen.dart';
+import '../corporate_screen.dart';
+import '../engagement_screen.dart';
+import '../meetup_screen.dart';
+import '../others_screen.dart';
+import '../pre_wedding_screen.dart';
+import '../reunions_screen.dart';
+import '../view/Auth/OtpVerify/VerificationScreen.dart';
+import '../view/Auth/login_screen.dart';
+import '../view/Auth/splash_screen.dart';
+import '../view/home_screen/home_screen.dart';
+import '../view/onBoadingScreen/on_boading_screen.dart';
+import '../wedding_screen.dart';
 
 class GetNavigationPath {
   static List<GetPage> get pages => [

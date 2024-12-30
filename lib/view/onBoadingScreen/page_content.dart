@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../Config/Colors.dart';
-import '../../Widgets/CustomText.dart';
-import '../../Widgets/PrimaryBtn.dart';
+import '../../Config/colors.dart';
+import '../../Widgets/custom_text.dart';
+import '../../Widgets/primary_btn.dart';
 
 class PageContent extends StatelessWidget {
   final String image;

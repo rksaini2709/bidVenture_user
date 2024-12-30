@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/Config/Colors.dart';
-import 'package:flutter_projects/Widgets/PrimaryBtn.dart';
-import '../../Config/Images.dart';
-import '../../Widgets/CustomText.dart';
+import 'package:flutter_projects/Config/colors.dart';
+import 'package:flutter_projects/Widgets/primary_btn.dart';
+import '../../Config/images.dart';
+import '../../Widgets/custom_text.dart';
 
 class ImageCarousel extends StatefulWidget {
   const ImageCarousel({super.key});
@@ -72,7 +72,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
         ),
 
         const SizedBox(
-          height: 10,
+          height: 15,
         ),
 
         // Dot Indicators
