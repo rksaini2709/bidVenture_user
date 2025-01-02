@@ -3,16 +3,20 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../anniversary_screen.dart';
 import '../birthday_screen.dart';
+import '../bottom_nav_bar.dart';
 import '../charity_screen.dart';
 import '../corporate_screen.dart';
 import '../engagement_screen.dart';
+import '../view/home_screen/event_book/event_booked_card.dart';
+import '../view/home_screen/event_book/event_booking_form .dart';
 import '../meetup_screen.dart';
 import '../others_screen.dart';
 import '../pre_wedding_screen.dart';
+import '../view/home_screen/radio_btn.dart';
 import '../reunions_screen.dart';
-import '../view/Auth/OtpVerify/VerificationScreen.dart';
 import '../view/Auth/login_screen.dart';
 import '../view/Auth/splash_screen.dart';
+import '../view/auth/verification_screen.dart';
 import '../view/home_screen/home_screen.dart';
 import '../view/onBoadingScreen/on_boading_screen.dart';
 import '../wedding_screen.dart';
@@ -38,6 +42,9 @@ class GetNavigationPath {
         GetPage(
             name: "/verificationScreen",
             page: () => const VerificationScreen()),
+
+        // Bottom Nav Bar
+        GetPage(name: "/bottomNavBar", page: () =>  BottomNavBar()),
 
         // Home Screen
         GetPage(name: "/homeScreen", page: () => const HomeScreen()),
@@ -79,5 +86,23 @@ class GetNavigationPath {
 
         // others screen
         GetPage(name: "/othersScreen", page: () => const OthersScreen()),
+
+        // Event Booking Form screen
+        GetPage(
+          name: "/eventBookingForm",
+          page: () => const EventBookingForm(),
+        ),
+
+        // Radio Btn screen
+        GetPage(
+          name: "/radioBtn",
+          page: () => const RadioBtn(),
+        ),
+
+        // Event Booked Card screen
+        GetPage(
+          name: "/eventBookedCard",
+          page: () => const EventBookedCard(),
+        ),
       ];
 }

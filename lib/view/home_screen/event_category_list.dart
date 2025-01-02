@@ -90,9 +90,9 @@ class EventCategoryList extends StatelessWidget {
                   ),
                   child: Image.asset(
                     event['imagePath'],
-                    height: 42,
-                    width: 42,
-                    // fit: BoxFit.contain,
+                    // height: 42,
+                    // width: 42,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),

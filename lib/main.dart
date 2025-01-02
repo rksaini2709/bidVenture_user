@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splashScreen',
+      // initialRoute: '/splashScreen',
+      initialRoute: '/bottomNavBar',
       // initialRoute: '/homeScreen',
       getPages: GetNavigationPath.pages,
     );

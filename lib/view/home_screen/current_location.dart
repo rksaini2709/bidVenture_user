@@ -43,7 +43,7 @@ class _CurrentLocationState extends State<CurrentLocation> {
         List<Placemark> placemarks = await placemarkFromCoordinates(
             position.latitude, position.longitude);
 
-        // If placemarks is not empty, we can construct the full address
+        // If place marks is not empty, we can construct the full address
         if (placemarks.isNotEmpty) {
           Placemark placemark = placemarks.first;
 
