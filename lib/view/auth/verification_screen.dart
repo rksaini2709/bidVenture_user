@@ -27,6 +27,7 @@ class VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
@@ -52,7 +53,8 @@ class VerificationScreenState extends State<VerificationScreen> {
                 onChanged: _checkOtpValidity,
                 onConfirm: () {
                   if (_isOtpValid) {
-                    Get.toNamed("/homeScreen");
+                    Get.toNamed("/bottomNavBar");
+                    // Get.toNamed("/homeScreen");
                   } else {
                     Get.snackbar(
                       "Invalid OTP",
